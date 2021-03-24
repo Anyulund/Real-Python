@@ -83,17 +83,18 @@ class Pizza_rad:
         return (f'Pizza_rad({self.radius!r},'f'{self.ingredients!r})')
 
     def area(self):
-        return self.circle_area(self.radius)
+        return self._circle_area(self.radius)
 
     # instead of calculating area under the function called area, call static method and calculate it separately
     @staticmethod
-    def circle_area(r):
+    def _circle_area(r):   #the underscore in front of the function name signals that this is internal function
         return r**2 * math.pi
 
 p = Pizza_rad(4,['mozarella','tomatoes'])
 print(p)
 print(p.area())
-print(Pizza_rad.circle_area(4))
+print(Pizza_rad._circle_area(4))
+print(Pizza_rad(4,['cheese']).area())
 
 '''
 KEY TAKEAWAYS
